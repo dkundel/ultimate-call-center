@@ -7,7 +7,7 @@ const QUEUE_NAME = 'myqueue';
 const CONFERENCE_NAME = 'myconference';
 const PORT = process.env.PORT || 3000;
 
-app.post('/call', (req, res) => {
+app.all('/call', (req, res) => {
   const twiml = new VoiceResponse();
   twiml.say(
     { voice: 'alice' },
@@ -17,7 +17,7 @@ app.post('/call', (req, res) => {
   res.type('text/xml').send(twiml.toString());
 });
 
-app.post('/wait', (req, res) => {
+app.all('/wait', (req, res) => {
   const twiml = new VoiceResponse();
   twiml.say(
     { voice: 'alice' },
@@ -27,7 +27,7 @@ app.post('/wait', (req, res) => {
   res.type('text/xml').send(twiml.toString());
 });
 
-app.post('/work-off-queue', (req, res) => {
+app.all('/work-off-queue', (req, res) => {
   const twiml = new VoiceResponse();
   twiml.say({ voice: 'alice' }, 'Connecting to next person in the queue.');
   twiml.dial().queue('myqueue');
