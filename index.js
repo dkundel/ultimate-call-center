@@ -13,7 +13,7 @@ app.all('/call', (req, res) => {
     { voice: 'alice' },
     `Thanks for calling the ultimate call center. You'll be connected shortly!`
   );
-  twiml.enqueue({ waitUrl: '/wait' }, 'myqueue');
+  twiml.enqueue({ waitUrl: '/wait' }, QUEUE_NAME);
   res.type('text/xml').send(twiml.toString());
 });
 
@@ -21,9 +21,9 @@ app.all('/wait', (req, res) => {
   const twiml = new VoiceResponse();
   twiml.say(
     { voice: 'alice' },
-    'While you are waiting, feel free to chat with other people waitin!'
+    'While you are waiting, feel free to chat with other people waiting!'
   );
-  twiml.dial().conference('myconference');
+  twiml.dial().conference(CONFERENCE_NAME);
   res.type('text/xml').send(twiml.toString());
 });
 
