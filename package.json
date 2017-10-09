@@ -4,6 +4,7 @@
   "description": "☎️  The call center the internet demanded and deserves!",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,8 +12,8 @@
     "url": "git+https://github.com/dkundel/ultimate-call-center.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Dominik Kundel <dkundel@twilio.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dkundel/ultimate-call-center/issues"
   },
